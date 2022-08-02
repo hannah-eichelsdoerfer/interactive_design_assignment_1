@@ -1,0 +1,21 @@
+/* @media only screen and (max-width: 720px) { */
+body {
+  min-height: auto;
+}
+
+header div {
+  width: 80%;
+  margin: 0 auto;
+}
+section {
+  height: auto;
+  display: block;
+}
+#career > div {
+  display: block;
+}
+
+.test {
+  display: none;
+}
+/* } */
