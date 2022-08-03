@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Cardo|Pathway+Gothic+One");
+
 * {
   box-sizing: border-box;
 }
@@ -13,8 +15,6 @@ body {
   color: #f1f1f1;
   font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
-  display: grid;
-  min-height: 100vh;
 }
 
 a {
@@ -24,14 +24,10 @@ a {
 
 a:hover {
   color: #0097c9;
+  transition: 0.3s ease-in-out;
 }
 
 header {
-  /* background-image: url("https://media0.faz.net/ppmedia/aktuell/wirtschaft/3581305170/1.6943248/default-retina/vint-cerf.jpg");
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  opacity: 0.5; */
   position: relative;
   height: 100vh;
   display: grid;
@@ -58,98 +54,12 @@ header h1 {
   /* margin: 0; */
   letter-spacing: 0.3rem;
   text-transform: uppercase;
-  /* text-decoration: underline; */
 }
 
 header h3 {
   margin: 0;
   font-weight: 100;
   letter-spacing: 0.3rem;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  column-gap: 7rem;
-  padding: 3rem 0;
-  margin-top: 13rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5rem;
-  font-size: 1.4rem;
-}
-
-main {
-  margin: 0 auto;
-  width: 80%;
-  margin-bottom: 10rem;
-}
-
-main h2 {
-  text-align: center;
-}
-
-.section {
-  height: calc(100vh - 5rem);
-  display: grid;
-  place-content: center;
-}
-
-#career p {
-  margin: 0;
-  padding: 0;
-}
-
-.section img {
-  grid-area: image;
-  padding-left: 2rem;
-}
-
-#career > div {
-  display: flex;
-  overflow-x: scroll;
-  column-gap: 1rem;
-  text-align: center;
-}
-
-#career > div > div {
-  /* border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
-  display: inline; */
-  /* width: 100px; */
-  min-width: 20rem;
-  padding: 1rem;
-  /* width: 400px; */
-}
-
-footer {
-  background: #0097c9;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 1rem;
-}
-
-.test {
-  transform: rotate(-270deg);
-  position: fixed;
-  left: -15rem;
-  top: 50%;
-  display: flex;
-  /* justify-content: center; */
-  column-gap: 7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5rem;
-  font-size: 1.4rem;
-}
-
-::-webkit-scrollbar:horizontal {
-  height: 8px;
-  background-color: red;
-}
-::-webkit-scrollbar-thumb:horizontal {
-  background: #000;
-  border-radius: 10px;
 }
 
 @-webkit-keyframes bounce {
@@ -213,9 +123,129 @@ button {
   -webkit-animation: bounce 2s infinite ease-in-out;
   -moz-animation: bounce 2s infinite ease-in-out;
 }
-
-#bouncing-button:hover {
+/* #bouncing-button:hover {
   opacity: 0.7;
-  color: #333333;
-  transition: 0.3s;
+} */
+
+@media only screen and (max-width: 767px) {
+  .timeline:before {
+    left: 40px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .timeline-item {
+    align-self: baseline !important;
+    width: 100%;
+    padding: 0 30px 150px 80px;
+  }
+  .timeline-item:before {
+    left: 10px !important;
+    padding: 0 !important;
+    top: 50px;
+    text-align: center !important;
+    width: 60px;
+    border: none !important;
+  }
+  .timeline-item:last-child {
+    padding-bottom: 40px;
+  }
+}
+
+#timeline {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 55%;
+  position: relative;
+}
+
+#timeline:before {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  margin-left: -1px;
+  content: "";
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.timeline-entry {
+  padding: 20px 0;
+  width: calc(50% - 2rem);
+  /* display: flex; */
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.timeline-entry:first-child {
+  margin-top: 7rem;
+}
+
+.timeline-entry:last-child {
+  margin-bottom: 7rem;
+}
+
+.timeline-entry h3 {
+  filter: blur(3px);
+  font-weight: normal;
+  font-size: 66px;
+  margin: -10px 0 0 0;
+  transition: 0.4s;
+  padding: 0 10px;
+  font-family: "Pathway Gothic One", sans-serif;
+  color: #fff;
+}
+
+.timeline-entry p {
+  font-family: Cardo;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 2.5rem;
+  padding: 0 10px;
+}
+
+.timeline-entry .different {
+  font-size: 1.2rem;
+  /* font-family: "Poppins", sans-serif; */
+  opacity: 0.5;
+}
+
+.timeline-entry:before {
+  content: "";
+  background: #0097c9;
+  width: 0.1rem;
+  height: 2rem;
+  transform: rotate(90deg);
+  position: absolute;
+  top: 4rem;
+  right: -1rem;
+}
+
+.timeline-entry:nth-child(even):before {
+  left: -1rem;
+}
+
+.timeline-entry:nth-child(odd) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.timeline-entry:nth-child(even) {
+  align-self: flex-end;
+}
+
+cite {
+  font-family: Cardo;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.2rem;
+}
+
+footer {
+  background: #0097c9cf;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.3rem 0;
 }
