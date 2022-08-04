@@ -219,6 +219,12 @@ cite {
   margin-bottom: 10rem;
 }
 
+#finishing-quote {
+  width: 500px;
+  margin: 0 auto 10rem auto;
+  text-align: center;
+}
+
 footer {
   background: #0097c9cf;
   width: 100%;
@@ -241,7 +247,18 @@ footer:before {
 }
 
 /* MEDIA QUERIES */
+@media only screen and (max-width: 1200px) {
+  #timeline {
+    max-width: 80%;
+  }
+}
+
 @media only screen and (max-width: 767px) {
+  header div {
+    width: 80%;
+    margin: 0 auto;
+  }
+
   #timeline {
     max-width: unset;
   }
@@ -270,15 +287,28 @@ footer:before {
   }
 
   .images {
-    display: block;
+    /* display: block;
+    height: unset; */
+    flex-direction: column;
     height: unset;
+    gap: 2rem;
   }
 
   .images img {
-    margin: 1rem auto;
+    margin: 0 auto;
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  #finishing-quote {
+    width: 70%;
   }
 
   footer:before {
-    display: none;
+    height: 137rem;
+    top: -137rem;
+    left: 4rem;
   }
 }
