@@ -264,4 +264,5 @@ footer:before {
 .references ol {
   text-align: center;
   list-style-position: inside;
+  letter-spacing: 0.3rem;
 }
