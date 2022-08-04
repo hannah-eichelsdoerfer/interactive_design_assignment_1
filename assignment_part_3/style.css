@@ -24,14 +24,11 @@ a {
 
 a:hover {
   color: #0097c9;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 header {
-  /* background-image: url("https://media0.faz.net/ppmedia/aktuell/wirtschaft/3581305170/1.6943248/default-retina/vint-cerf.jpg");
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  opacity: 0.5; */
   position: relative;
   height: 100vh;
   display: grid;
@@ -55,10 +52,8 @@ header div {
 
 header h1 {
   font-size: 8.4rem;
-  /* margin: 0; */
   letter-spacing: 0.3rem;
   text-transform: uppercase;
-  /* text-decoration: underline; */
 }
 
 header h3 {
@@ -66,6 +61,8 @@ header h3 {
   font-weight: 100;
   letter-spacing: 0.3rem;
 }
+
+/* NEW */
 
 nav {
   display: flex;
@@ -79,13 +76,88 @@ nav {
 }
 
 main {
+  display: grid;
+  gap: 20px;
+  grid-template-areas:
+    "navbar"
+    "header"
+    "timeline";
+  width: 85%;
   margin: 0 auto;
-  width: 80%;
-  margin-bottom: 10rem;
 }
+
+main .navbar {
+  padding: 2rem 0;
+  grid-area: navbar;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-size: 1.4rem;
+}
+
+main .header {
+  grid-area: header;
+}
+
+main #timeline {
+  grid-area: timeline;
+}
+
+main .sidebar {
+  display: none;
+}
+
+main.references {
+  min-height: unset;
+}
+
+main.references .list {
+  grid-area: timeline;
+  margin-top: 10rem;
+  word-wrap: break-word;
+  letter-spacing: 0.3rem;
+}
+
+main .sidebar img {
+  filter: grayscale(100%);
+}
+
+@media (min-width: 960px) {
+  main {
+    width: 95%;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-areas:
+      "header  header header"
+      "navbar timeline sidebar";
+    min-height: 100vh;
+  }
+
+  main .navbar {
+    /* transform: rotate(-270deg); */
+    flex-direction: column;
+    justify-content: unset;
+    gap: 5rem;
+    position: fixed;
+    top: 30%;
+  }
+
+  main .sidebar {
+    grid-area: sidebar;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+/* NEW END */
 
 main h2 {
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  font-size: 5rem;
 }
 
 .section {
@@ -94,38 +166,9 @@ main h2 {
   place-content: center; */
 }
 
-.section h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.3rem;
-  /* color: #0097c9; */
-  text-align: left;
-}
-
-#career p {
-  margin: 0;
-  padding: 0;
-}
-
 .section img {
   grid-area: image;
   padding-left: 2rem;
-}
-
-#career > div {
-  display: flex;
-  overflow-x: scroll;
-  column-gap: 1rem;
-  text-align: center;
-}
-
-#career > div > div {
-  /* border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
-  display: inline; */
-  /* width: 100px; */
-  min-width: 20rem;
-  padding: 1rem;
-  /* width: 400px; */
 }
 
 footer {
@@ -135,18 +178,6 @@ footer {
   width: 100%;
   text-align: center;
   font-size: 1rem;
-}
-
-.test {
-  transform: rotate(-270deg);
-  position: fixed;
-  left: -14rem;
-  top: 50%;
-  display: flex;
-  column-gap: 4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5rem;
-  font-size: 1.4rem;
 }
 
 ::-webkit-scrollbar:horizontal {
@@ -224,4 +255,196 @@ button {
   opacity: 0.7;
   color: #333333;
   transition: 0.3s;
+}
+
+/* Timeline */
+
+#timeline {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* max-width: 55%; */
+  position: relative;
+}
+
+#timeline:before {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  margin-left: -1px;
+  content: "";
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.timeline-entry {
+  padding: 20px 0;
+  width: calc(50% - 2rem);
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.timeline-entry:first-child {
+  margin-top: 7rem;
+}
+
+.timeline-entry:last-child {
+  margin-bottom: 7rem;
+}
+
+.timeline-entry h3 {
+  filter: blur(3px);
+  font-weight: normal;
+  font-size: 66px;
+  margin: -10px 0 0 0;
+  transition: 0.4s;
+  padding: 0 10px;
+  font-family: "Pathway Gothic One", sans-serif;
+  color: #fff;
+}
+
+.timeline-entry p {
+  font-family: Cardo;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 2.5rem;
+  padding: 0 10px;
+}
+
+.timeline-entry .different {
+  font-size: 1.2rem;
+  opacity: 0.5;
+}
+
+.timeline-entry:before {
+  content: "";
+  background: #0097c9;
+  width: 0.1rem;
+  height: 2rem;
+  transform: rotate(90deg);
+  position: absolute;
+  top: 4rem;
+  right: -1rem;
+}
+
+.timeline-entry:nth-child(even):before {
+  left: -1rem;
+}
+
+.timeline-entry:nth-child(odd) {
+  text-align: right;
+}
+
+.timeline-entry:nth-child(even) {
+  align-self: flex-end;
+}
+
+cite {
+  font-family: Cardo;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.2rem;
+}
+
+.images {
+  height: 250px;
+  display: flex;
+  filter: grayscale(100%);
+  overflow-x: hidden;
+  margin-bottom: 10rem;
+}
+
+#finishing-quote {
+  width: 500px;
+  margin: 0 auto 10rem auto;
+  text-align: center;
+}
+
+footer {
+  background: #0097c9cf;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.3rem 0;
+  position: relative;
+}
+
+footer:before {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 30rem;
+  margin-left: -1px;
+  top: -30rem;
+  content: "";
+  background: rgba(255, 255, 255, 0.07);
+  z-index: -10;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 1200px) {
+  #timeline {
+    max-width: 80%;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  header div {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #timeline {
+    max-width: unset;
+  }
+  #timeline:before {
+    left: 40px;
+  }
+  .timeline-entry {
+    /* align-self: flex-start;*/
+    width: 100%;
+    padding: 0 30px 50px 80px;
+  }
+
+  .timeline-entry:nth-child(odd) {
+    text-align: left;
+  }
+  .timeline-entry:before {
+    left: 50px !important;
+    top: 2.5rem;
+  }
+
+  blockquote {
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+  }
+
+  .images {
+    flex-direction: column;
+    height: unset;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .images img {
+    margin: 0 auto;
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  #finishing-quote {
+    width: 70%;
+  }
+
+  footer:before {
+    height: 137rem;
+    top: -137rem;
+    left: 4rem;
+  }
 }

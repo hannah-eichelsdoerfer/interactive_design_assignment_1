@@ -25,6 +25,7 @@ a {
 a:hover {
   color: #0097c9;
   transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 header {
@@ -51,7 +52,6 @@ header div {
 
 header h1 {
   font-size: 8.4rem;
-  /* margin: 0; */
   letter-spacing: 0.3rem;
   text-transform: uppercase;
 }
@@ -238,4 +238,30 @@ footer:before {
   content: "";
   background: rgba(255, 255, 255, 0.07);
   z-index: -10;
+}
+
+/* References Page */
+.references {
+  margin: 0 auto;
+  width: 80%;
+}
+.references nav {
+  display: flex;
+  column-gap: 4rem;
+  text-transform: uppercase;
+  justify-content: center;
+  letter-spacing: 0.5rem;
+  font-size: 1.4rem;
+  padding: 2rem 0;
+}
+
+.references h2 {
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.references ol {
+  text-align: center;
+  list-style-position: inside;
 }

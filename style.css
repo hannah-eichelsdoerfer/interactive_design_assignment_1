@@ -23,6 +23,7 @@ a {
 a:hover {
   color: #0097c9;
   transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 header {
