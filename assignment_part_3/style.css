@@ -14,7 +14,6 @@ body {
   font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
   display: grid;
-  /* min-height: 100vh; */
 }
 
 a {
@@ -61,8 +60,6 @@ header h3 {
   font-weight: 100;
   letter-spacing: 0.3rem;
 }
-
-/* NEW */
 
 nav {
   display: flex;
@@ -134,7 +131,6 @@ main .sidebar img {
   }
 
   main .navbar {
-    /* transform: rotate(-270deg); */
     flex-direction: column;
     justify-content: unset;
     gap: 5rem;
@@ -151,8 +147,6 @@ main .sidebar img {
   }
 }
 
-/* NEW END */
-
 main h2 {
   text-align: center;
   text-transform: uppercase;
@@ -162,8 +156,6 @@ main h2 {
 
 .section {
   min-height: calc(100vh - 10rem);
-  /* display: grid;
-  place-content: center; */
 }
 
 .section img {
@@ -257,14 +249,12 @@ button {
   transition: 0.3s;
 }
 
-/* Timeline */
-
+/* TIMELINE */
 #timeline {
   display: flex;
   margin: 0 auto;
   flex-wrap: wrap;
   flex-direction: column;
-  /* max-width: 55%; */
   position: relative;
 }
 
@@ -403,7 +393,6 @@ footer:before {
     left: 40px;
   }
   .timeline-entry {
-    /* align-self: flex-start;*/
     width: 100%;
     padding: 0 30px 50px 80px;
   }
